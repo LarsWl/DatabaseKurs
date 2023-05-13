@@ -1,0 +1,34 @@
+{
+    "mappings": {
+        "properties": {
+            "speciality": { "type": "keyword" },
+            "work_experience": { "type": "integer" },
+            "personal_info": { "type": "text" },
+            "reviews": {
+                "type": "text",
+                "analyzer": "custom_analyzer"
+            }
+        }
+    },
+    "settings": {
+        "analysis": {
+            "analyzer": {
+                "custom_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "standard",
+                    "filter": ["lowercase", "russian_stopwords", "russian_snowball"]
+                }
+            },
+            "filter": {
+                "russian_stopwords": {
+                    "type": "stop",
+                    "stopwords": "_russian_"
+                },
+                "russian_snowball": {
+                    "type": "snowball",
+                    "language": "Russian"
+                }
+            }
+        }
+    }
+}

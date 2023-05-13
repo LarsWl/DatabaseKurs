@@ -1,0 +1,9 @@
+{
+    "aggs": {
+        "by_work_experience": {
+            "terms": {
+                "field": "work_experience"
+            }
+        }
+    }
+}

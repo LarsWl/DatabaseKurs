@@ -1,0 +1,17 @@
+{
+    "aggs": {
+        "lesssons_by_month": {
+            "date_histogram": {
+                "field": "date",
+                "calendar_interval": "month"
+            },
+            "aggs": {
+                "lessons_by_trainer": {
+                    "terms": {
+                        "field": "trainer_id"
+                    }
+                }
+            }
+        }
+    }
+}

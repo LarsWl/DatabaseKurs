@@ -1,0 +1,48 @@
+{
+    "mappings": {
+        "properties": {
+            "trainer_id": { "type": "keyword" },
+            "lesson_id": { "type": "keyword" },
+            "visitor_id": { "type": "keyword" },
+            "date": {
+                "type": "date",
+                "format": "dd-MM-yyyy"
+            },
+            "age": { "type": "integer" },
+            "personal_info": {
+                "type": "text",
+                "analyzer": "custom_analyzer"
+            },
+            "abonement": {
+                "type": "text",
+                "analyzer": "custom_analyzer"
+            },
+            "services": {
+                "type": "text",
+                "analyzer": "custom_analyzer"
+            },
+            "price": { "type": "integer" }
+        }
+    },
+    "settings": {
+        "analysis": {
+            "analyzer": {
+                "custom_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "standard",
+                    "filter": ["lowercase", "russian_stopwords", "russian_snowball"]
+                }
+            },
+            "filter": {
+                "russian_stopwords": {
+                    "type": "stop",
+                    "stopwords": "_russian_"
+                },
+                "russian_snowball": {
+                    "type": "snowball",
+                    "language": "Russian"
+                }
+            }
+        }
+    }
+}
