@@ -1,4 +1,4 @@
-SELECT visitors.id, sum(lessons.price)
-FROM lessons, visitors
-WHERE lessons.visitor_id = visitors.id
-GROUP BY visitors.id
+SELECT lessons.visitor_id, sum(lessons.price)
+FROM lessons
+GROUP BY lessons.visitor_id
+
