@@ -23,7 +23,8 @@ for trainer in trainers:
             TRAINER_NODE_NAME,
             id=trainer["_id"],
             speciality=trainer['_source']['speciality'],
-            work_experience=trainer['_source']['work_experience']
+            work_experience=trainer['_source']['work_experience'],
+            personal_info=trainer['_source']['personal_info']
         )
         graph_db.create(trainer_node)
     except Exception as e:
